@@ -175,8 +175,8 @@ stop :: String -> IO a
 stop str = putStrLn str >> exitSuccess
 
 -- Print to stderr and exit with failure
-die :: String -> IO a
-die str = hPutStrLn stderr str >> exitFailure
+-- die :: String -> IO a
+-- die str = hPutStrLn stderr str >> exitFailure
 
 main :: IO ()
 main =
@@ -193,7 +193,7 @@ main =
                         ++ "easier reading."
                putStrLn ""
                putStr "Usage: "
-               putStr . show $ helpText HelpFormatAll atArgs
+               putStr . show $ helpText [] HelpFormatAll atArgs
                exitSuccess
        AlignTableArgs{..}
          -> do let fn = case tableType of
